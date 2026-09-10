@@ -1,0 +1,13 @@
+# Material de referencia / trabajo interno — no forma parte del sitio publicado
+ChatGPT Image*.png
+propuesta-marca-personal.md
+LEEME.md
+
+# Archivos de sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
