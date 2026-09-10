@@ -8,6 +8,7 @@ LEEME.md
 Thumbs.db
 desktop.ini
 
-# Editores
+# Editores / herramientas
 .vscode/
 .idea/
+.claude/
