@@ -1,99 +1,88 @@
-# Altus Dev — sitio de presentación
+# Altus Dev — rediseño 2026
 
-Landing de una sola página para Altus Dev. Es HTML, CSS y JavaScript
-estáticos, sin frameworks ni build: se puede abrir tal cual o publicar
-directamente en GitHub Pages.
+Landing estática, responsive y lista para GitHub Pages o cualquier hosting de archivos. No requiere compilación ni dependencias.
+
+## Dirección de diseño
+
+La idea visual es **precisión con personalidad**: estructura editorial, mucho aire y detalles técnicos discretos, equilibrados con la cercanía de Nublo. Se mantiene la identidad petróleo/aqua, pero el aqua deja de ocupar grandes superficies y pasa a señalar acciones, énfasis y estados. La tipografía display aporta carácter; la sans serif conserva legibilidad.
+
+El hero responde tres preguntas en el primer viewport: qué hace Altus Dev, para quién y cuál es el siguiente paso. El CTA conduce al único canal de contacto confirmado. No se agregaron testimonios, cifras, proyectos ni formularios ficticios.
 
 ## Estructura
 
+1. Header sticky: marca, navegación, tema y CTA.
+2. Hero: propuesta de valor, beneficios breves y visual de Nublo.
+3. Declaración: principio de claridad que diferencia la marca.
+4. Servicios: tres ofertas con alcance comprensible.
+5. Proceso: cuatro pasos con responsabilidades visibles.
+6. Enfoque Altus: trato directo, criterio técnico y continuidad.
+7. Contacto: invitación concreta a conversar por Instagram.
+8. Footer: navegación y datos esenciales.
+
+## Sistema de diseño
+
+| Token | Claro | Oscuro | Uso |
+| --- | --- | --- | --- |
+| `--bg` | `#F4FBFC` | `#071B21` | Fondo general |
+| `--surface` | `#FFFFFF` | `#0D272F` | Tarjetas y paneles |
+| `--ink` | `#0B3742` | `#EDFAFA` | Texto principal |
+| `--ink-soft` | `#496B73` | `#AAC5CA` | Texto secundario |
+| `--primary` | `#0B4654` | `#9BDFDD` | Acciones y bloques de alto contraste |
+| `--accent` | `#86D2D0` | `#72C9C7` | Acentos de marca |
+| `--line` | `#CFE5E8` | `#21434B` | Bordes |
+
+Tipografías: DM Serif Display para títulos y DM Sans para interfaz/cuerpo. El título principal usa `clamp(3.15rem, 10vw, 6.6rem)` con línea 0.94; títulos de sección `clamp(2.5rem, 6vw, 4.7rem)`; cuerpo principal desde 1rem con línea 1.65. La escala espacial parte en múltiplos de 4/8 px. Radios: 12, 20 y 32 px. Sombras amplias, poco opacas y reservadas para jerarquía.
+
+## Wireframe
+
+```text
+[ Header: Altus Dev | Servicios · Proceso · Enfoque | Tema | Hablemos ]
+
+[ Mensaje principal + CTA             | Nublo en marco editorial ]
+[ Indicadores de confianza            | Notas flotantes          ]
+
+[ Manifiesto breve: claridad antes que ruido                         ]
+
+[ Servicios: Sitio / Catálogo destacado / Formulario                 ]
+
+[ Introducción de proceso fija        | 01 Entender                ]
+[                                     | 02 Definir                 ]
+[                                     | 03 Diseñar y desarrollar   ]
+[                                     | 04 Revisar y publicar      ]
+
+[ Enfoque y trato directo             | Cuadrícula de principios   ]
+
+[ CTA de contacto: contexto + botón de Instagram                     ]
+[ Footer                                                          ]
 ```
-index.html            Contenido y estructura de la página
-styles.css            Estilos (paleta, tipografía, layout)
-script.js             Menú móvil accesible + año del pie de página
-assets/
-  favicon.svg         Ícono del sitio
-  nublo.png           Nublo en el inicio (hero)
-  nublo-servicios.png Nublo junto al encabezado de Servicios
-  nublo-proceso.png   Nublo junto a los pasos de Cómo trabajo
-  nublo-sobre.png     Nublo junto al texto de Sobre Altus Dev
-  nublo-contacto.png  Nublo en la franja de Contacto
-  og-image.jpg        Imagen de vista previa al compartir el enlace
-```
 
-La paleta es fija (azul hielo, petróleo y acentos aqua): el sitio no
-cambia con el modo oscuro del sistema, para mantener siempre la misma
-identidad visual de la marca.
+En móvil, cada bloque pasa a una sola columna, el menú se vuelve desplegable y se ocultan las notas flotantes que competirían con el contenido.
 
-Todas las rutas (CSS, JS, imágenes, enlaces internos `#seccion`) son
-relativas, así que el sitio funciona igual en la raíz de un dominio o
-bajo una subruta de repositorio de GitHub Pages (por ejemplo
-`usuario.github.io/altus-dev/`).
+## Copywriting aplicado
 
-## Ver el sitio en local
+- Se reemplazó lenguaje genérico por resultados entendibles: ordenar la oferta, responder dudas y facilitar el contacto.
+- Se evita prometer ventas, autonomía total o mantenimiento cero.
+- El texto usa primera persona sin convertir el nombre personal en elemento de marca.
+- El CTA “Cuéntame tu proyecto” reduce presión; la sección final aclara que el cliente no necesita llegar con todo definido.
 
-No requiere instalación. Basta con un servidor estático simple porque
-los navegadores restringen `fetch`/módulos al abrir un archivo con
-`file://` directamente:
+## Checklist
 
-```bash
-# con Python (suele venir instalado)
-python -m http.server 8080
+- HTML semántico, jerarquía de encabezados y landmarks.
+- Enlace de salto, foco visible, control con teclado y cierre del menú con Escape.
+- Contraste AA en ambos temas y soporte de colores forzados.
+- Respeto por `prefers-reduced-motion`.
+- Layout mobile-first y puntos de ajuste a 768 y 976 px.
+- Tipografía fluida, áreas táctiles mínimas y texto ampliable.
+- Imagen principal dimensionada, optimizada y con prioridad de carga.
+- JavaScript progresivo y sin dependencias.
+- Metadatos de título, descripción, Open Graph y tema.
+- Sin formularios falsos, métricas inventadas ni enlaces de contacto no confirmados.
 
-# o con Node
-npx serve .
-```
+## Archivos
 
-Luego abre `http://localhost:8080` en el navegador.
+- `index.html`: estructura y contenido.
+- `styles.css`: tokens, temas, responsive y movimiento.
+- `script.js`: menú, tema, header y aparición progresiva.
+- `assets/`: favicon e imagen optimizada.
 
-## Publicar en GitHub Pages
-
-Ya está publicado: el repositorio es
-[github.com/lillyANNE626/altus-dev](https://github.com/lillyANNE626/altus-dev)
-y GitHub Pages sirve la rama `main` completa (carpeta raíz). Cualquier
-`git push` a `main` actualiza el sitio publicado en uno o dos minutos.
-
-Para republicarlo desde cero en otra cuenta o repositorio:
-
-1. Crea un repositorio en GitHub (público, para que Pages sea gratis)
-   y sube estos archivos a la rama `main`.
-2. En el repositorio, ve a **Settings → Pages**.
-3. En "Build and deployment", elige **Deploy from a branch**, selecciona
-   la rama `main` y la carpeta `/ (root)`.
-4. Guarda. GitHub entrega una URL pública en uno o dos minutos, con el
-   formato `https://usuario.github.io/nombre-del-repositorio/`.
-
-No hace falta ningún ajuste en el código: todas las rutas son
-relativas, así que funcionan igual bajo cualquier subruta.
-
-## Dónde cambiar cada cosa
-
-- **Textos**: todos están directamente en `index.html`, en español y
-  sin marcadores de posición — busca la sección por su `id`
-  (`#servicios`, `#proceso`, `#sobre`, `#contacto`) o por el texto
-  visible.
-- **Instagram / contacto**: el enlace
-  `https://www.instagram.com/dev.altus/` aparece cuatro veces en
-  `index.html` (botón del encabezado, dos llamados a la acción y el
-  pie de página). Reemplázalo en las cuatro si cambia el usuario.
-- **Colores**: están centralizados como variables al inicio de
-  `styles.css` (bloque `:root`). La paleta es única a propósito: no
-  cambia con el modo oscuro del sistema.
-- **Imágenes**: reemplaza los archivos dentro de `assets/` conservando
-  el mismo nombre, o actualiza la ruta en `index.html` si usas otro
-  nombre de archivo. Las cinco ilustraciones `nublo-*.png` acompañan
-  cada sección (ver tabla de arriba); `og-image.jpg` es la imagen que
-  se muestra al compartir el enlace (por ejemplo, al pegarlo en la
-  biografía o en un mensaje de Instagram).
-- **Metadatos para compartir**: título, descripción e imagen de vista
-  previa están en las etiquetas `<meta property="og:...">` y
-  `<meta name="twitter:...">` dentro de `<head>`. Si cambias de
-  repositorio o dominio, actualiza también `og:url`, `og:image` y
-  `twitter:image`, que están escritos como URL absoluta.
-
-## URL para poner en Instagram
-
-**https://lillyanne626.github.io/altus-dev/**
-
-Esa es la URL pública real, ya verificada (responde 200 y carga sin
-errores en móvil y escritorio). Colócala como enlace del perfil de
-Instagram.
+El contenido está preparado para publicarse directamente desde la raíz de la rama `main` con GitHub Pages.
